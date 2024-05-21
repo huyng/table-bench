@@ -34,7 +34,7 @@ text_sink = dp.io.TextSink("table.csv")
 
 print("Writing table.jsonl")
 seq = dp.Sequence(rows)\
-        .map(lambda v: list(zip(headers, v)))\
+        .map(lambda v: dict(zip(headers, v)))\
         .progress()\
         .dump(json_sink)
 
